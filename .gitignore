@@ -1,40 +1,23 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
+# Large training dataset
+data/jigsaw_train.csv
 
 # Virtual environment
 venv/
 .venv/
-env/
 
-# Environment/secrets
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables
 .env
-.env.*
-*.key
-credentials.json
-secrets.json
 
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Node
-node_modules/
-
-# Build
-dist/
-build/
-
-# Logs
-*.log
 # SQLite database
 *.sqlite3
 
 # Backup files
 *.bak
 *.bak3
+
+# Node dependencies
+node_modules/
