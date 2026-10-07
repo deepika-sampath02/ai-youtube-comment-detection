@@ -1,0 +1,40 @@
+/* Added by add_lively_ui.py */
+.hero-wrap { padding-bottom: 0 !important; }
+.hero { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 26px; border-radius: 16px; color: #fff; overflow: hidden;
+  background: linear-gradient(120deg, #0b2a45 0%, #0b5c68 55%, #0E9F8E 100%);
+  box-shadow: 0 10px 28px rgba(11, 42, 69, .22); animation: pgin .5s ease backwards; }
+.hero h1 { margin: 0 0 6px; font-size: 24px; }
+.hero p { margin: 0; opacity: .88; max-width: 520px; line-height: 1.45; }
+.hero-art { width: 220px; height: 130px; flex-shrink: 0; }
+.float { animation: flt 3.2s ease-in-out infinite; }
+.float.d2 { animation-delay: .6s; }
+.float.d3 { animation-delay: 1.2s; }
+.grow { transform-box: fill-box; transform-origin: bottom; animation: grw .9s ease backwards; }
+@keyframes flt { 50% { transform: translateY(-6px); } }
+@keyframes grw { from { transform: scaleY(0); } }
+
+.page-fade { animation: pgin .45s ease backwards; }
+.page-fade .wrap > * { animation: pgin .5s ease backwards; }
+.page-fade .wrap > *:nth-child(2) { animation-delay: .06s; }
+.page-fade .wrap > *:nth-child(3) { animation-delay: .12s; }
+.page-fade .wrap > *:nth-child(4) { animation-delay: .18s; }
+.page-fade .wrap > *:nth-child(5) { animation-delay: .24s; }
+.page-fade .wrap > *:nth-child(n+6) { animation-delay: .3s; }
+@keyframes pgin { from { opacity: 0; transform: translateY(12px); } }
+
+.card, .dstat, .inc, .feed-row, .yt-item { transition: transform .2s, box-shadow .2s, border-color .2s; }
+.card:hover, .dstat:hover, .inc:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(11, 42, 69, .14); }
+.feed-row:hover { transform: translateX(3px); }
+.btn, .ghost, .tabs button { transition: transform .15s, box-shadow .2s, background .2s, color .2s; }
+.btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(14, 159, 142, .35); }
+.btn:active:not(:disabled), .ghost:active { transform: scale(.97); }
+.ghost:hover, .tabs button:hover { transform: translateY(-1px); }
+.pill { transition: transform .15s; }
+.pill:hover { transform: scale(1.07); }
+
+@media (max-width: 700px) { .hero-art { display: none; } .hero { padding: 16px 18px; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero, .page-fade, .page-fade .wrap > *, .float, .grow { animation: none !important; }
+  .card, .dstat, .inc, .feed-row, .btn, .ghost, .tabs button, .pill { transition: none !important; }
+}

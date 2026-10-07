@@ -1,0 +1,42 @@
+expected,predicted,severity,categories,comment,sexual
+SAFE,SAFE,NONE,Normal,This video made my day lol,0.22
+SAFE,SAFE,NONE,Normal,Bro the editing is actually so good,0.05
+SAFE,SAFE,NONE,Normal,Where did you get this dress from?,0.08
+SAFE,SAFE,NONE,Normal,"First time watching your channel, really enjoyed it",0.2
+SAFE,SAFE,NONE,Normal,Please make a part 2,0.12
+SAFE,SAFE,NONE,Normal,This song is stuck in my head now,0.53
+SAFE,SAFE,NONE,Normal,Anyone watching this in 2026?,0.13
+SAFE,SAFE,NONE,Normal,"Your explanation was very clear, thank you",0.17
+SAFE,SAFE,NONE,Normal,Can you share the recipe please,0.1
+SAFE,SAFE,NONE,Normal,The ending was unexpected lol,0.09
+SAFE,SAFE,NONE,Normal,Congrats!! You deserve more subscribers,0.13
+SAFE,SAFE,NONE,Normal,I came here from the shorts and stayed for the whole video,0.11
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,This is such a stupid video,0.12
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,What a useless take,0.19
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,Bro this is dumb af,0.14
+OFFENSIVE,SAFE,NONE,Normal,Your content is getting worse,0.39
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,Nobody asked for this nonsense,0.08
+OFFENSIVE,SAFE,NONE,Normal,This guy has no idea what he is talking about,0.18
+OFFENSIVE,SAFE,NONE,Normal,Worst tutorial I have watched today,0.07
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,Stop posting this garbage,0.09
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,You are an idiot,0.07
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,Shut up and go away,0.41
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,You're a pathetic loser,0.23
+OFFENSIVE,OFFENSIVE,LOW,Harassment,"Get lost, nobody likes you",0.38
+OFFENSIVE,SAFE,NONE,Normal,What is wrong with you seriously,0.18
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,You are so damn annoying,0.13
+OFFENSIVE,SAFE,NONE,Normal,"I keep seeing you everywhere, just stop commenting",0.12
+OFFENSIVE,SAFE,NONE,Normal,Why are you following every post I make,0.02
+OFFENSIVE,SAFE,NONE,Normal,Delete your account already,0.27
+OFFENSIVE,SAFE,NONE,Normal,"We know where you post, you can't hide forever",0.15
+OFFENSIVE,SAFE,NONE,Normal,Stop tagging me in every single video,0.13
+OFFENSIVE,SAFE,NONE,Normal,You keep coming back after I told you to stop,0.16
+THREAT,SAFE,NONE,Normal,Keep talking and you'll regret it,0.15
+THREAT,THREAT,HIGH,Threat,I know where you live,0.19
+THREAT,THREAT,HIGH,Threat,You better watch yourself,0.16
+THREAT,SAFE,NONE,Normal,I'll come after you if you post that again,0.21
+THREAT,SAFE,NONE,Normal,"Just wait, you're going to be sorry",0.1
+SEXUAL,OFFENSIVE,MEDIUM,Offensive,Send me your private pics,0.53
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,Can you send me some nude photos,0.9
+SEXUAL,SAFE,NONE,Normal,"You look hot, send something private",0.47
+SEXUAL,SAFE,NONE,Normal,DM me if you want to do something naughty,0.27

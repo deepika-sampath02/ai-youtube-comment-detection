@@ -1,0 +1,29 @@
+.fd-as{font-weight:600}
+.fd-feed{display:flex;flex-direction:column;gap:18px;align-items:center}
+.fd-post{width:100%;max-width:560px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 16px 16px;box-shadow:0 6px 20px rgba(11,31,58,.06);box-sizing:border-box}
+.fd-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.fd-author{font-weight:700}
+.fd-img{height:230px;border-radius:14px;display:flex;align-items:flex-end;padding:18px;box-sizing:border-box}
+.fd-img span{color:#fff;font-size:24px;font-weight:800;line-height:1.15;max-width:80%;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.fd-actions{display:flex;align-items:center;gap:12px;margin:10px 0 4px;font-weight:600}
+.fd-actions .muted{font-weight:400}
+.fd-like{background:none;border:none;padding:2px;cursor:pointer;display:flex;border-radius:8px}
+.fd-like:focus-visible,.fd-send:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.fd-caption{margin-bottom:8px}
+.fd-comments{display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.fd-comment{display:flex;gap:8px;align-items:flex-start}
+.fd-comment.held{background:#FFF8E6;border-radius:10px;padding:6px 8px;margin:0 -8px}
+.fd-ctext{word-break:break-word;font-size:15px}
+.fd-box{display:flex;gap:8px;margin-top:8px;border-top:1px solid var(--line);padding-top:10px}
+.fd-box input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;outline:none}
+.fd-box input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,159,142,.15)}
+.fd-send{background:var(--teal);color:#fff;border:none;border-radius:12px;padding:0 18px;font:inherit;font-weight:700;cursor:pointer}
+.fd-send:disabled{opacity:.5;cursor:default}
+.fd-warn{background:#FFF1E6;border:1.5px solid #F08A3C;border-radius:12px;padding:12px 14px;margin:8px 0;color:#7A3500}
+.fd-warn-btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.fd-held{background:#EEF4FF;border:1.5px solid #93B4F5;border-radius:12px;padding:12px 14px;margin:8px 0;color:#16396B}
+.fd-rep{margin-left:auto;flex:none;background:none;border:none;color:var(--muted);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;padding:2px 4px;border-radius:6px}
+.fd-rep:hover{color:#C62828}
+.fd-rep:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.fd-rep.done{text-decoration:none;cursor:default}
+.fd-rep.done:hover{color:var(--muted)}

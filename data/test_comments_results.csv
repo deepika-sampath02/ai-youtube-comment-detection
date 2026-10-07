@@ -1,0 +1,102 @@
+expected,predicted,severity,categories,comment,sexual
+SAFE,SAFE,NONE,Normal,Beautiful photo! Love this place,0.38
+SAFE,SAFE,NONE,Normal,"Great post, thanks for sharing!",0.02
+SAFE,SAFE,NONE,Normal,Congratulations on your new job,0.41
+SAFE,SAFE,NONE,Normal,I'm going to kill this workout today,0.06
+SAFE,SAFE,NONE,Normal,"This song is sick, on repeat all day",0.34
+SAFE,SAFE,NONE,Normal,I'm dying of laughter,0.19
+SAFE,SAFE,NONE,Normal,You absolutely killed it in that performance,0.18
+SAFE,SAFE,NONE,Normal,Shoot me an email when you're free,0.18
+SAFE,SAFE,NONE,Normal,"That exam murdered me, so hard",0.23
+SAFE,SAFE,NONE,Normal,Can you share the recipe please,0.1
+SAFE,SAFE,NONE,Normal,What time does the event start,0.06
+SAFE,SAFE,NONE,Normal,Happy birthday! Have an amazing year,0.09
+SAFE,SAFE,NONE,Normal,"This is so helpful, thank you",0.05
+SAFE,SAFE,NONE,Normal,We need more content like this,0.13
+SAFE,SAFE,NONE,Normal,I disagree with your point but respect your view,0.11
+SAFE,SAFE,NONE,Normal,Looking good in this picture,0.07
+SAFE,SAFE,NONE,Normal,"Nice work, keep it up",0.24
+SAFE,SAFE,NONE,Normal,"The match was a bloodbath, what a game",0.07
+SAFE,SAFE,NONE,Normal,Love the colors in this design,0.07
+SAFE,SAFE,NONE,Normal,She is a killer singer,0.31
+SAFE,SAFE,NONE,Normal,My phone battery is dead,0.28
+SAFE,SAFE,NONE,Normal,I will see you tomorrow at the meeting,0.19
+SAFE,SAFE,NONE,Normal,I'll find you at the cafe at 5,0.21
+SAFE,SAFE,NONE,Normal,Let's hook up the printer to the wifi,0.18
+SAFE,SAFE,NONE,Normal,Where can I buy this dress,0.08
+SAFE,SAFE,NONE,Normal,This recipe is the bomb,0.08
+SAFE,SAFE,NONE,Normal,He bombed the interview but tried hard,0.23
+SAFE,SAFE,NONE,Normal,"Slay queen, you look fantastic",0.23
+SAFE,SAFE,NONE,Normal,Can't wait for the weekend,0.2
+SAFE,SAFE,NONE,Normal,The movie was boring and too long,0.07
+SAFE,SAFE,NONE,Normal,Not a fan of this policy,0.04
+SAFE,SAFE,NONE,Normal,"Wow, that sunset is stunning",0.15
+SAFE,SAFE,NONE,Normal,Your dog is adorable,0.19
+SAFE,SAFE,NONE,Normal,I'm so tired after work today,0.06
+SAFE,SAFE,NONE,Normal,Please follow back,0.04
+SAFE,SAFE,NONE,Normal,Is this available in size M,0.16
+SAFE,SAFE,NONE,Normal,Thanks for the quick delivery,0.09
+SAFE,SAFE,NONE,Normal,The service was slow and I was disappointed,0.08
+SAFE,SAFE,NONE,Normal,"You are wrong about this, please check the facts",0.04
+SAFE,SAFE,NONE,Normal,Beat the traffic by leaving early,0.19
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you are an idiot,0.07
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you are so stupid and useless,0.11
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,shut up you moron,0.52
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,what a dumb piece of trash,0.22
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,fuck this stupid app,0.66
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,"this is bullshit, you people are clowns",0.24
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you are a pathetic loser,0.17
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,"nobody likes you, go away loser",0.21
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,what the fuck is wrong with you,0.68
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you ugly fat pig,0.46
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,stupid bitch,0.19
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you dumb bastard,0.35
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,get lost you jerk,0.42
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,f*ck you,0.66
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,you are a worthless piece of shit,0.61
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,asshole,0.41
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,you filthy scumbag,0.31
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,shut your mouth you clown,0.84
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,idiots like you ruin this page,0.26
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,go to hell you creep,0.47
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you are brainless,0.17
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,disgusting human being,0.32
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,"you suck, quit now",1.0
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,only an idiot would post this,0.05
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,trash opinion from a trash person,0.28
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,"you are a joke, loser",0.15
+THREAT,THREAT,HIGH,Threat,I will find you and hurt you,0.28
+THREAT,THREAT,HIGH,Threat + Offensive,I will kill you,0.13
+THREAT,THREAT,HIGH,Threat,you will regret this,0.16
+THREAT,THREAT,HIGH,Threat,I'm going to beat you up after school,0.53
+THREAT,THREAT,HIGH,Threat,"watch your back, I know where you live",0.32
+THREAT,THREAT,HIGH,Threat,you are a dead man,0.46
+THREAT,THREAT,HIGH,Threat,I will make you pay for this,0.18
+THREAT,THREAT,HIGH,Threat + Offensive,I'll burn your house down,0.27
+THREAT,THREAT,HIGH,Threat + Offensive,I'm gonna shoot you,0.79
+THREAT,THREAT,HIGH,Threat,"you better run, I'm coming for you",0.09
+THREAT,THREAT,HIGH,Threat + Offensive,I will stab you,0.2
+THREAT,THREAT,HIGH,Threat,you will die for this,0.12
+THREAT,THREAT,HIGH,Threat,I'll hunt you down,0.24
+THREAT,THREAT,HIGH,Threat,next time I see you I will hurt you,0.23
+THREAT,THREAT,HIGH,Threat + Offensive,say that again and I'll kill you,0.15
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,send nudes,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,send me your photos without clothes,0.9
+SEXUAL,SEXUAL,CRITICAL,Sexual / 18+ + Offensive,show me your boobs,0.98
+SEXUAL,SEXUAL,CRITICAL,Sexual / 18+ + Offensive,want to have sex with me tonight,1.0
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,"let's hook up tonight, come to my room",0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,send me a nude pic,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,I'm so horny right now,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,dm me for porn links,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,sext me baby,0.9
+SEXUAL,SEXUAL,CRITICAL,Sexual / 18+ + Offensive,show me your body naked,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,"nice tits, show more",0.9
+SEXUAL,SEXUAL,CRITICAL,Sexual / 18+ + Offensive,send me dick pics,0.99
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,want to see you topless,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,free porn videos click here,0.9
+SEXUAL,SEXUAL,CRITICAL,Sexual / 18+ + Offensive,send me your naked pictures,0.9
+SEXUAL,SEXUAL,CRITICAL,Sexual / 18+ + Offensive,let's have sex,1.0
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,come undress for me on cam,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,hot girl send pics without clothes,0.9
+SEXUAL,SEXUAL,CRITICAL,Sexual / 18+ + Abusive + Harassment + Offensive,I want to fuck you,0.93
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,"are you alone, send me something spicy without your clothes",0.9

@@ -1,0 +1,42 @@
+expected,predicted,severity,categories,comment,sexual
+SAFE,SAFE,NONE,Normal,"Omg this looks amazing, where is this?",0.12
+SAFE,SAFE,NONE,Normal,"You nailed it, proud of you",0.25
+SAFE,SAFE,NONE,Normal,"I'm dead, this is too funny",0.15
+SAFE,SAFE,NONE,Normal,"That goal was insane, absolute banger",0.1
+SAFE,SAFE,NONE,Normal,"Why is the delivery so late, very annoying",0.1
+SAFE,SAFE,NONE,Normal,I hate Mondays so much,0.1
+SAFE,SAFE,NONE,Normal,This outfit is fire,0.13
+SAFE,SAFE,NONE,Normal,"Your voice is killer, drop the full song",0.31
+SAFE,SAFE,NONE,Normal,I will call you tonight after dinner,0.17
+SAFE,SAFE,NONE,Normal,Come to my place for dinner on Sunday,0.27
+SAFE,SAFE,NONE,Normal,Did you shoot this video on your phone?,0.52
+SAFE,SAFE,NONE,Normal,"He destroyed the competition, 10/10",0.11
+SAFE,SAFE,NONE,Normal,"Not my favourite episode, kinda boring",0.25
+SAFE,SAFE,NONE,Normal,I strongly disagree with the author here,0.03
+SAFE,SAFE,NONE,Normal,"Just ordered one, can't wait",0.19
+SAFE,SAFE,NONE,Normal,The ending of this movie killed me,0.05
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you are a total waste of space,0.13
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,nobody asked for your dumb opinion,0.32
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,"what a loser, get a life",0.14
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,shut up already you annoying freak,0.31
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,"this is such crap, you should be ashamed",0.09
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,ur an idiot lol,0.07
+OFFENSIVE,OFFENSIVE,HIGH,Abusive + Harassment + Offensive,damn you're ugly,0.36
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you piece of garbage,0.16
+OFFENSIVE,OFFENSIVE,LOW,Offensive,stfu nobody cares,0.18
+OFFENSIVE,OFFENSIVE,MEDIUM,Harassment + Offensive,you are pathetic and everyone knows it,0.26
+THREAT,THREAT,HIGH,Threat,I'm going to break your legs,0.53
+THREAT,THREAT,HIGH,Threat,keep talking and you'll end up in the hospital,0.22
+THREAT,THREAT,HIGH,Threat,"I will ruin your life, just wait",0.13
+THREAT,THREAT,HIGH,Threat,you won't see tomorrow,0.1
+THREAT,THREAT,HIGH,Threat,I'm going to hurt you badly,0.22
+THREAT,THREAT,HIGH,Threat + Offensive,someone should shoot you,0.35
+THREAT,THREAT,HIGH,Threat + Offensive,I swear I'll kill you,0.23
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,wanna see you naked,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,nudes please,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,dm me for adult content,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,"you have a sexy body, send more pics",0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,let's sleep together tonight,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,show me what's under your dress,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,get naked on video call,0.9
+SEXUAL,SEXUAL,HIGH,Sexual / 18+,I want to see your private parts,0.9

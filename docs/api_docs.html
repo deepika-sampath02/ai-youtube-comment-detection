@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeComment AI - API reference</title>
+<style>
+:root{--bg:#F9FAFB;--card:#fff;--text:#111827;--muted:#6B7280;--line:#E5E7EB;--accent:#1976d2;--code:#0F172A;--codetext:#E2E8F0;--get:#166534;--getbg:#DCFCE7;--post:#9A3412;--postbg:#FFEDD5}
+@media (prefers-color-scheme:dark){:root{--bg:#0F172A;--card:#1E293B;--text:#F1F5F9;--muted:#94A3B8;--line:#334155;--accent:#60A5FA;--code:#020617;--getbg:#14532D;--get:#BBF7D0;--postbg:#7C2D12;--post:#FED7AA}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1060px;margin:0 auto;gap:40px;padding:32px 20px}
+nav{position:sticky;top:24px;align-self:start;font-size:14px}
+nav b{display:block;margin-bottom:10px;font-size:15px}
+nav a{display:block;padding:5px 0;color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+main{min-width:0;max-width:720px}
+h1{font-size:30px;margin:0 0 8px}
+h2{font-size:22px;margin:44px 0 10px;padding-top:8px}
+h3{font-size:17px;margin:0}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:17px}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:rgba(127,127,127,.15);padding:1px 6px;border-radius:5px}
+pre{background:var(--code);color:var(--codetext);padding:14px 16px;border-radius:10px;overflow-x:auto;font:13px/1.55 ui-monospace,Consolas,monospace;margin:10px 0}
+pre code{background:none;padding:0;font-size:inherit}
+.ep{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+.ep-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.m{font:700 12px ui-monospace,Consolas,monospace;padding:3px 9px;border-radius:6px}
+.m.get{background:var(--getbg);color:var(--get)}
+.m.post{background:var(--postbg);color:var(--post)}
+.path{font:600 15px ui-monospace,Consolas,monospace;word-break:break-all}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th{text-align:left;color:var(--muted);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.note{border-left:3px solid var(--accent);padding:6px 14px;margin:14px 0;color:var(--muted)}
+.warn{border-left-color:#DC2626}
+@media (max-width:760px){.layout{grid-template-columns:1fr}nav{position:static}}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav>
+  <b>SafeComment AI</b>
+  <a href="#start">Getting started</a>
+  <a href="#auth">Authentication</a>
+  <a href="#moderate">Moderate a comment</a>
+  <a href="#batch">Moderate many comments</a>
+  <a href="#history">History</a>
+  <a href="#stats">Stats</a>
+  <a href="#incidents">List incidents</a>
+  <a href="#review">Review an incident</a>
+  <a href="#report">Download a report</a>
+  <a href="#fields">Result fields</a>
+  <a href="#errors">Errors</a>
+  <a href="#limits">Limits</a>
+</nav>
+
+<main>
+<h1>SafeComment AI API</h1>
+<p class="lead">Send a comment, get back what kind of content it is, how severe it is, and what the platform should do about it. A human reviewer confirms serious incidents; the system never files a report with any authority.</p>
+
+<h2 id="start">Getting started</h2>
+<p>Base URL when running locally: <code>http://127.0.0.1:8000/api</code>. All request and response bodies are JSON, except the report download, which is plain text.</p>
+<pre><code>curl.exe -X POST http://127.0.0.1:8000/api/moderate/ ^
+  -H "Content-Type: application/json" ^
+  -d "{\"comment\": \"You are an idiot\", \"platform\": \"instagram\", \"user_id\": \"troll_99\"}"</code></pre>
+<p>That command is for Windows Command Prompt. In PowerShell, put the JSON in a file and use <code>-d "@body.json"</code> to avoid quoting problems.</p>
+
+<h2 id="auth">Authentication</h2>
+<p>If the environment variable <code>SAFECOMMENT_API_KEY</code> is set on the server, every endpoint except <code>/health/</code> requires the same value in an <code>X-API-Key</code> header. If it is not set, no key is needed. The dashboard's dev server adds the header for you.</p>
+<pre><code>X-API-Key: your-key-here</code></pre>
+<p>A missing or wrong key returns <code>401</code> with <code>{"error": "invalid or missing API key"}</code>.</p>
+
+<div class="ep">
+  <div class="ep-head"><span class="m get">GET</span><span class="path">/health/</span></div>
+  <p>Checks that the server is running. No key needed.</p>
+  <pre><code>{"status": "ok"}</code></pre>
+</div>
+
+<h2 id="moderate">Moderate a comment</h2>
+<div class="ep">
+  <div class="ep-head"><span class="m post">POST</span><span class="path">/moderate/</span></div>
+  <p>Analyzes one comment, decides an action, and saves the result. If the action is <code>REMOVE</code>, an incident is opened for human review.</p>
+  <table>
+    <tr><th>Field</th><th>Required</th><th>Description</th></tr>
+    <tr><td><code>comment</code></td><td>yes</td><td>The text to check. Up to 1000 characters.</td></tr>
+    <tr><td><code>platform</code></td><td>no</td><td><code>instagram</code>, <code>facebook</code>, <code>youtube</code>, <code>twitter</code> or <code>custom</code>. Anything else is stored as <code>custom</code>.</td></tr>
+    <tr><td><code>user_id</code></td><td>no</td><td>The commenter's ID on your platform. Needed for strike counting across comments.</td></tr>
+    <tr><td><code>comment_id</code></td><td>no</td><td>Your own ID for the comment, so you can match results back.</td></tr>
+  </table>
+  <p>Example response (values are illustrative):</p>
+  <pre><code>{
+  "comment": "I know where you live",
+  "categories": ["Threat"],
+  "severity": "HIGH",
+  "needs_review": false,
+  "scores": { "threat": 0.93, "...": 0.0 },
+  "action": "REMOVE",
+  "escalate": true,
+  "report_required": false,
+  "restrict_user": false,
+  "strikes": 2,
+  "incident_id": 10
+}</code></pre>
+  <p><code>incident_id</code> is <code>null</code> unless the action is <code>REMOVE</code>. The exact keys inside <code>scores</code> come from the model; read them from a live response.</p>
+</div>
+
+<h2 id="batch">Moderate many comments</h2>
+<div class="ep">
+  <div class="ep-head"><span class="m post">POST</span><span class="path">/moderate-batch/</span></div>
+  <p>Same analysis for up to 100 comments in one call. Results come back in the same order as the input, but empty comments are skipped, so match by <code>comment_id</code> if you might send blanks.</p>
+  <pre><code>{
+  "platform": "youtube",
+  "comments": [
+    { "comment": "Please make a part 2", "user_id": "nina_b", "comment_id": "c1" },
+    { "comment": "Stop posting this garbage", "user_id": "anon_x7", "comment_id": "c2" }
+  ]
+}</code></pre>
+  <p>Each item can also be a plain string, in which case it has no user or comment ID. The response is <code>{"results": [ ... ]}</code>, where each entry has the fields shown above.</p>
+</div>
+
+<h2 id="history">History</h2>
+<div class="ep">
+  <div class="ep-head"><span class="m get">GET</span><span class="path">/history/</span></div>
+  <p>Every analyzed comment, newest first. All filters are optional query parameters.</p>
+  <table>
+    <tr><th>Parameter</th><th>Example</th><th>Effect</th></tr>
+    <tr><td><code>severity</code></td><td><code>HIGH</code></td><td>One of NONE, LOW, MEDIUM, HIGH, CRITICAL.</td></tr>
+    <tr><td><code>category</code></td><td><code>Threat</code></td><td>Matches any category containing this text.</td></tr>
+    <tr><td><code>platform</code></td><td><code>instagram</code></td><td>Only that platform.</td></tr>
+    <tr><td><code>user_id</code></td><td><code>troll_99</code></td><td>Only that user's comments.</td></tr>
+    <tr><td><code>action</code></td><td><code>REMOVE</code></td><td>The decided action, such as ALLOW, WARN or REMOVE.</td></tr>
+    <tr><td><code>review</code></td><td><code>1</code></td><td>Only comments that need human review.</td></tr>
+    <tr><td><code>limit</code></td><td><code>100</code></td><td>Rows to return. Default 50, maximum 200.</td></tr>
+  </table>
+  <p>Response: <code>{"count": N, "results": [ ... ]}</code>. <code>count</code> is the total matching rows, which can be larger than the rows returned.</p>
+</div>
+
+<h2 id="stats">Stats</h2>
+<div class="ep">
+  <div class="ep-head"><span class="m get">GET</span><span class="path">/stats/</span></div>
+  <p>Totals for the dashboard.</p>
+  <pre><code>{
+  "total": 10,
+  "safe": 5,
+  "flagged": 5,
+  "needs_review": 2,
+  "open_incidents": 3,
+  "possible_cybercrime": 1,
+  "by_severity": { "NONE": 5, "MEDIUM": 2, "HIGH": 3 }
+}</code></pre>
+</div>
+
+<h2 id="incidents">List incidents</h2>
+<div class="ep">
+  <div class="ep-head"><span class="m get">GET</span><span class="path">/incidents/</span></div>
+  <p>Comments that were removed and so need a human decision. Returns up to 100.</p>
+  <table>
+    <tr><th>Parameter</th><th>Example</th><th>Effect</th></tr>
+    <tr><td><code>status</code></td><td><code>open</code></td><td><code>open</code>, <code>confirmed</code> or <code>dismissed</code>. Leave out for all.</td></tr>
+    <tr><td><code>cybercrime</code></td><td><code>1</code></td><td>Only incidents flagged as possible cybercrime.</td></tr>
+  </table>
+</div>
+
+<h2 id="review">Review an incident</h2>
+<div class="ep">
+  <div class="ep-head"><span class="m post">POST</span><span class="path">/incidents/{id}/review/</span></div>
+  <p>Records a human decision on an incident.</p>
+  <pre><code>{ "decision": "confirmed", "reviewer": "Deepika" }</code></pre>
+  <table>
+    <tr><th>Field</th><th>Required</th><th>Description</th></tr>
+    <tr><td><code>decision</code></td><td>yes</td><td><code>confirmed</code> or <code>dismissed</code>.</td></tr>
+    <tr><td><code>reviewer</code></td><td>yes</td><td>The reviewer's name, up to 100 characters. It is saved with a timestamp.</td></tr>
+  </table>
+  <p>Returns the updated incident. An unknown ID returns <code>404</code>.</p>
+</div>
+
+<h2 id="report">Download a report</h2>
+<div class="ep">
+  <div class="ep-head"><span class="m get">GET</span><span class="path">/incidents/{id}/report/</span></div>
+  <p>Returns a plain-text evidence file named <code>incident_{id}_report.txt</code>: the comment, the AI scores, the strike count, and who confirmed it and when. It only works for incidents that are flagged as possible cybercrime <em>and</em> confirmed by a reviewer.</p>
+  <table>
+    <tr><th>Status</th><th>Meaning</th></tr>
+    <tr><td><code>200</code></td><td>The file is returned.</td></tr>
+    <tr><td><code>400</code></td><td>Not flagged as possible cybercrime, or not yet confirmed. The error message says which.</td></tr>
+    <tr><td><code>404</code></td><td>No such incident.</td></tr>
+  </table>
+  <div class="note warn">The system never submits anything to a government portal. The file tells the reviewer to file the complaint themselves at cybercrime.gov.in and to keep screenshots from the original app.</div>
+</div>
+
+<h2 id="fields">Result fields</h2>
+<table>
+  <tr><th>Field</th><th>Meaning</th></tr>
+  <tr><td><code>categories</code></td><td>One or more of Normal, Offensive, Harassment, Threat, Sexual / 18+.</td></tr>
+  <tr><td><code>severity</code></td><td>NONE, LOW, MEDIUM, HIGH or CRITICAL.</td></tr>
+  <tr><td><code>needs_review</code></td><td>The model was unsure; a person should look.</td></tr>
+  <tr><td><code>confidence</code></td><td>0 to 1. Stored with history rows.</td></tr>
+  <tr><td><code>scores</code></td><td>Per-category scores from 0 to 1.</td></tr>
+  <tr><td><code>action</code></td><td>What the platform should do, such as ALLOW, WARN or REMOVE.</td></tr>
+  <tr><td><code>escalate</code></td><td>Whether the case should go to a senior reviewer.</td></tr>
+  <tr><td><code>report_required</code></td><td>Possible cybercrime. Enables the report download after confirmation.</td></tr>
+  <tr><td><code>restrict_user</code></td><td>The user has enough strikes that restricting them is advised.</td></tr>
+  <tr><td><code>strikes</code></td><td>This user's earlier non-allowed comments, including this one.</td></tr>
+  <tr><td><code>status</code></td><td><code>none</code> (no incident), <code>open</code>, <code>confirmed</code> or <code>dismissed</code>.</td></tr>
+  <tr><td><code>reviewed_by</code>, <code>reviewed_at</code></td><td>Who made the human decision and when (UTC).</td></tr>
+</table>
+<div class="note">Strikes only count when you send a <code>user_id</code>. Without it, every comment starts from zero.</div>
+
+<h2 id="errors">Errors</h2>
+<p>Errors are JSON in the form <code>{"error": "message"}</code>.</p>
+<table>
+  <tr><th>Status</th><th>Message</th></tr>
+  <tr><td><code>400</code></td><td>Invalid JSON; comment is required; comment is too long; decision must be 'confirmed' or 'dismissed'; reviewer is required.</td></tr>
+  <tr><td><code>401</code></td><td>invalid or missing API key</td></tr>
+  <tr><td><code>404</code></td><td>incident not found</td></tr>
+  <tr><td><code>405</code></td><td>Wrong HTTP method for the endpoint (for example GET on <code>/moderate/</code>).</td></tr>
+</table>
+
+<h2 id="limits">Limits and accuracy</h2>
+<ul>
+  <li>Comments are limited to 1000 characters; batches to 100 comments.</li>
+  <li>The model judges one comment at a time. On a hand-written test of 41 comments it scored 61.0%. It missed most repeated-contact harassment, veiled threats and soft sexual requests.</li>
+  <li>Treat results as a triage aid. A person should make every final decision.</li>
+</ul>
+</main>
+</div>
+</body>
+</html>
